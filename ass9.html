@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Webpage</title>
+    <style>
+        /* General Styles */
+        body, html {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+            color: #333;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            background-color: #f4f4f4;
+        }
+
+        a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Grid Container */
+        .grid-container {
+            display: grid;
+            grid-template-rows: auto 1fr auto;
+            grid-template-columns: 1fr;
+            grid-template-areas: 
+                "header"
+                "nav"
+                "content"
+                "footer";
+            flex: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem;
+            grid-gap: 1rem;
+        }
+
+        /* Header */
+        header {
+            grid-area: header;
+            background-color: #4CAF50;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            border-radius: 5px;
+        }
+
+        /* Navigation */
+        nav {
+            grid-area: nav;
+            display: flex;
+            justify-content: center;
+            background-color: #333;
+            padding: 0.5rem;
+            border-radius: 5px;
+        }
+
+        nav a {
+            color: white;
+            margin: 0 1rem;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #4CAF50;
+        }
+
+        /* Main Content */
+        .content {
+            grid-area: content;
+            display: grid;
+            grid-template-areas: 
+                "main main sidebar sidebar"
+                "main main nested nested";
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            grid-gap: 1rem;
+        }
+
+        .main {
+            grid-area: main;
+            background-color: white;
+            padding: 1rem;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .main h2 {
+            margin-top: 0;
+            font-size: 1.5rem;
+            color: #4CAF50;
+        }
+
+        .sidebar {
+            grid-area: sidebar;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .card {
+            background-color: white;
+            padding: 1rem;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .card h3 {
+            margin-top: 0;
+            font-size: 1.25rem;
+            color: #4CAF50;
+        }
+
+        /* Nested Grid */
+        .nested {
+            grid-area: nested;
+            display: grid;
+            grid-template-areas: 
+                "nested1 nested2"
+                "nested3 nested3";
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 1rem;
+        }
+
+        .nested-item {
+            background-color: white;
+            padding: 1rem;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .nested-item:nth-of-type(1) { grid-area: nested1; }
+        .nested-item:nth-of-type(2) { grid-area: nested2; }
+        .nested-item:nth-of-type(3) { grid-area: nested3; }
+
+        .nested-item h4 {
+            margin-top: 0;
+            font-size: 1.25rem;
+            color: #4CAF50;
+        }
+
+        /* Footer */
+        footer {
+            grid-area: footer;
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            border-radius: 5px;
+        }
+
+        /* Media Queries */
+
+        /* Mobile (max-width: 600px) */
+        @media (max-width: 600px) {
+            .grid-container {
+                grid-template-areas:
+                    "header"
+                    "nav"
+                    "content"
+                    "footer";
+                grid-template-columns: 1fr;
+                padding: 0.5rem;
+            }
+
+            .content {
+                grid-template-areas: 
+                    "main"
+                    "sidebar"
+                    "nested";
+                grid-template-columns: 1fr;
+            }
+
+            .main h2 {
+                font-size: 1.25rem;
+            }
+
+            .nested {
+                grid-template-areas: 
+                    "nested1"
+                    "nested2"
+                    "nested3";
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Tablet (min-width: 601px and max-width: 1024px) */
+        @media (min-width: 601px) and (max-width: 1024px) {
+            .grid-container {
+                grid-template-areas:
+                    "header"
+                    "nav"
+                    "content"
+                    "footer";
+                grid-template-columns: 1fr;
+                padding: 1rem;
+            }
+
+            .content {
+                grid-template-areas: 
+                    "main main"
+                    "sidebar sidebar"
+                    "nested nested";
+                grid-template-columns: 2fr 1fr;
+            }
+
+            .main h2 {
+                font-size: 1.5rem;
+            }
+
+            .nested {
+                grid-template-areas: 
+                    "nested1 nested2"
+                    "nested3 nested3";
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        /* Desktop (min-width: 1025px) */
+        @media (min-width: 1025px) {
+            .grid-container {
+                grid-template-areas:
+                    "header"
+                    "nav"
+                    "content"
+                    "footer";
+                grid-template-columns: 1fr;
+                padding: 1.5rem;
+            }
+
+            .content {
+                grid-template-areas: 
+                    "main main sidebar sidebar"
+                    "main main nested nested";
+                grid-template-columns: 2fr 1fr 1fr 1fr;
+            }
+
+            .main h2 {
+                font-size: 1.75rem;
+            }
+
+            .nested {
+                grid-template-areas: 
+                    "nested1 nested2"
+                    "nested3 nested3";
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="grid-container">
+        <header>
+            <h1>Responsive Webpage</h1>
+        </header>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">Articles</a>
+            <a href="#">Tutorials</a>
+            <a href="#">Contact</a>
+        </nav>
+        <div class="content">
+            <div class="main">
+                <h2>Introduction to Responsive Design</h2>
+                <p>Responsive design ensures that your web page looks good on all devices, from mobile phones to desktop computers. By using media queries, you can adapt the layout and style of your website to fit different screen sizes.</p>
+                <ul>
+                    <li>Adjust layout for different screen sizes.</li>
+                    <li>Change font sizes for readability.</li>
+                    <li>Hide or show elements as needed.</li>
+                </ul>
+            </div>
+            <div class="sidebar">
+                <div class="card">
+                    <h3>Quick Links</h3>
+                    <p>Explore these topics:</p>
+                    <ul>
+                        <li><a href="#">Responsive Web Design Basics</a></li>
+                        <li><a href="#">Using Media Queries</a></li>
+                        <li><a href="#">Mobile First Design</a></li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>Resources</h3>
+                    <p>Useful resources:</p>
+                    <ul>
+                        <li><a href="#">CSS Tricks</a></li>
+                        <li><a href="#">MDN Web Docs</a></li>
+                        <li><a href="#">W3Schools</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="nested">
+                <div class="nested-item">
+                    <h4>Grid Item 1</h4>
+                    <p>Using media queries, you can create flexible and adaptive layouts that work across different devices and screen sizes.</p>
+                </div>
+                <div class="nested-item">
+                    <h4>Grid Item 2</h4>
+                    <p>Responsive design is essential for modern web development, ensuring accessibility and usability for all users.</p>
+                </div>
+                <div class="nested-item">
+                    <h4>Grid Item 3</h4>
+                    <p>By applying media queries, you can control the presentation of your web content dynamically based on the user's device.</p>
+                </div>
+            </div>
+        </div>
+        <footer>
+            <p>&copy; 2024 Responsive Webpage. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>
