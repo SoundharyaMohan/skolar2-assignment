@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enhanced Grid Layout</title>
+    <style>
+        /* CSS styles */
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4; /* Light gray background */
+            color: #333; /* Dark text color */
+            height: 100vh; /* Full height of viewport */
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            background-color: #4CAF50; /* Green background */
+            color: white;
+            padding: 1rem 0;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Header shadow */
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #333; /* Dark background */
+            padding: 0.5rem 0;
+        }
+
+        nav a {
+            color: white;
+            margin: 0 1rem;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #4CAF50; /* Green on hover */
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-rows: auto 1fr auto; /* Defines rows for header, main content, and footer */
+            grid-template-columns: 1fr; /* Single column layout */
+            grid-gap: 1rem; /* Gap between grid items */
+            flex: 1; /* Take available space */
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .main {
+            display: grid;
+            grid-template-rows: auto; /* Automatic row sizing */
+            grid-template-columns: 2fr 1fr; /* Main content and sidebar */
+            grid-gap: 1rem; /* Gap between main content and sidebar */
+        }
+
+        .main-content {
+            grid-column: 1 / 2; /* Main content area */
+            display: grid;
+            grid-template-rows: repeat(3, auto); /* Three rows */
+            grid-gap: 1rem; /* Gap between content items */
+        }
+
+        .article {
+            padding: 1rem;
+            background-color: #fff;
+            border-radius: 10px; /* Rounded corners */
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* Box shadow */
+        }
+
+        .article h2 {
+            margin-top: 0;
+            font-size: 1.5rem;
+            color: #4CAF50; /* Green title color */
+        }
+
+        .article p {
+            margin: 0.5rem 0;
+        }
+
+        .sidebar {
+            grid-column: 2 / 3; /* Sidebar area */
+            display: flex;
+            flex-direction: column;
+            gap: 1rem; /* Gap between sidebar items */
+        }
+
+        .card {
+            padding: 1rem;
+            background-color: #fff;
+            border-radius: 10px; /* Rounded corners */
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* Box shadow */
+        }
+
+        .card h3 {
+            margin-top: 0;
+            font-size: 1.25rem;
+            color: #4CAF50; /* Green title color */
+        }
+
+        footer {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 1rem 0;
+            box-shadow: 0 -2px 4px rgba(0,0,0,0.1); /* Footer shadow */
+        }
+
+        @media (max-width: 768px) {
+            .main {
+                grid-template-columns: 1fr; /* Single column on small screens */
+            }
+
+            .main-content, .sidebar {
+                grid-column: 1 / 2; /* Full width on small screens */
+            }
+        }
+
+        .header-logo {
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        .content-title {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+
+        .content-description {
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        ul {
+            list-style-type: disc;
+            margin: 0;
+            padding-left: 1.5rem;
+        }
+
+        ol {
+            margin: 0;
+            padding-left: 1.5rem;
+        }
+
+        .content-description ul,
+        .content-description ol {
+            margin-top: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-logo">My Grid Webpage</div>
+    </header>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Services</a>
+        <a href="#">Contact</a>
+    </nav>
+    <div class="grid-container">
+        <div class="main">
+            <div class="main-content">
+                <div class="article">
+                    <h2 class="content-title">Introduction to CSS Grid</h2>
+                    <p class="content-description">CSS Grid Layout is a two-dimensional layout system for the web. It lets you layout items in rows and columns, providing a flexible and powerful system for creating responsive designs.</p>
+                    <ul>
+                        <li>Two-dimensional layout: rows and columns.</li>
+                        <li>Flexible track sizes and placement of items.</li>
+                        <li>Ability to control the spacing between items.</li>
+                    </ul>
+                </div>
+                <div class="article">
+                    <h2 class="content-title">Key Concepts of CSS Grid</h2>
+                    <p class="content-description">Understanding CSS Grid requires familiarizing yourself with several key concepts:</p>
+                    <ol>
+                        <li><strong>Grid Container:</strong> The parent element that houses the grid items.</li>
+                        <li><strong>Grid Item:</strong> The child elements within the grid container.</li>
+                        <li><strong>Grid Line:</strong> The lines that separate the grid into rows and columns.</li>
+                        <li><strong>Grid Cell:</strong> The space between two adjacent row and column grid lines.</li>
+                    </ol>
+                </div>
+                <div class="article">
+                    <h2 class="content-title">Basic Properties of CSS Grid</h2>
+                    <p class="content-description">To effectively use CSS Grid, you need to understand its fundamental properties:</p>
+                    <ul>
+                        <li><strong>grid-template-rows:</strong> Defines the number and size of the rows.</li>
+                        <li><strong>grid-template-columns:</strong> Defines the number and size of the columns.</li>
+                        <li><strong>grid-gap:</strong> Sets the space between rows and columns.</li>
+                        <li><strong>grid-area:</strong> Defines a grid item’s position and size.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="sidebar">
+                <div class="card">
+                    <h3 class="content-title">Additional Resources</h3>
+                    <p class="content-description">Explore the following links to learn more about CSS Grid:</p>
+                    <ul>
+                        <li><a href="#">CSS Grid Layout Guide</a></li>
+                        <li><a href="#">CSS Tricks Grid Guide</a></li>
+                        <li><a href="#">MDN CSS Grid Documentation</a></li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3 class="content-title">Popular Tutorials</h3>
+                    <p class="content-description">Check out some popular tutorials to get started with CSS Grid:</p>
+                    <ul>
+                        <li><a href="#">Creating a Basic Grid Layout</a></li>
+                        <li><a href="#">Building Complex Grid Structures</a></li>
+                        <li><a href="#">Responsive Design with CSS Grid</a></li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3 class="content-title">Latest Articles</h3>
+                    <p class="content-description">Stay updated with the latest articles on web design:</p>
+                    <ul>
+                        <li><a href="#">Understanding CSS Grid's Implicit Grid</a></li>
+                        <li><a href="#">Grid Layouts vs. Flexbox</a></li>
+                        <li><a href="#">Advanced Grid Techniques</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2024 My Grid Webpage. All rights reserved.</p>
+    </footer>
+</body>
+</html>
