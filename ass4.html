@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Box Model Demonstration</title>
+    <style>
+        /* Page background and general styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Header styles */
+        header {
+            background: linear-gradient(to bottom, #485563, #29323c);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        /* Section styles */
+        section {
+            padding: 20px;
+            max-width: 900px;
+            margin: auto;
+        }
+
+        /* Article styles */
+        article {
+            background: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Box model examples */
+        .box {
+            margin-bottom: 20px;
+            padding: 20px;
+            border: 5px solid #4e54c8;
+            background-color: #e2e2f6;
+        }
+
+        .content-box {
+            box-sizing: content-box;
+            background-color: #fff0f0;
+        }
+
+        .border-box {
+            box-sizing: border-box;
+            background-color: #f0fff0;
+        }
+
+        /* Utility styles for visual distinction */
+        .inner-box {
+            background-color: #add8e6;
+            border: 2px dashed #1e90ff;
+            padding: 10px;
+            margin: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>CSS Box Model Demonstration</h1>
+    </header>
+
+    <section>
+        <article>
+            <h2>Content Box Model</h2>
+            <p>The <strong>content-box</strong> model includes only the content area within the specified width and height. Padding, borders, and margins are added to the content area’s size.</p>
+            <div class="box content-box">
+                <p>This box uses the content-box model.</p>
+                <div class="inner-box">Inner content</div>
+            </div>
+        </article>
+        <article>
+            <h2>Border Box Model</h2>
+            <p>The <strong>border-box</strong> model includes the content area, padding, and border within the specified width and height. Only the margins are added outside the box.</p>
+            <div class="box border-box">
+                <p>This box uses the border-box model.</p>
+                <div class="inner-box">Inner content</div>
+            </div>
+        </article>
+        <article>
+            <h2>Effect of Padding</h2>
+            <p>Padding is the space between the content area and the border. It expands the box’s total size by adding space inside the border.</p>
+            <div class="box content-box" style="padding: 40px;">
+                <p>This box has extra padding.</p>
+                <div class="inner-box">Inner content</div>
+            </div>
+        </article>
+        <article>
+            <h2>Effect of Border</h2>
+            <p>Borders are added around the padding and content area. The width of the border affects the total size of the box.</p>
+            <div class="box content-box" style="border-width: 15px;">
+                <p>This box has a thicker border.</p>
+                <div class="inner-box">Inner content</div>
+            </div>
+        </article>
+        <article>
+            <h2>Effect of Margin</h2>
+            <p>Margins create space outside the border of the box, separating it from other elements.</p>
+            <div class="box content-box" style="margin: 40px;">
+                <p>This box has extra margin.</p>
+                <div class="inner-box">Inner content</div>
+            </div>
+        </article>
+    </section>
+</body>
+</html>
