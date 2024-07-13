@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pseudo-Classes and Pseudo-Elements Demo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        h1 {
+            margin-bottom: 40px;
+        }
+
+        .container {
+            display: flex;
+            gap: 20px;
+        }
+
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: #4CAF50;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            position: relative;
+        }
+
+        .box::before {
+            content: 'Before';
+            position: absolute;
+            top: -20px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            font-size: 12px;
+            color: #333;
+        }
+
+        .box::after {
+            content: 'After';
+            position: absolute;
+            bottom: -20px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            font-size: 12px;
+            color: #333;
+        }
+
+        .hover:hover {
+            background-color: #FF5722;
+        }
+
+        .active:active {
+            background-color: #3F51B5;
+        }
+
+        .focus:focus {
+            background-color: #009688;
+            outline: none;
+        }
+
+        .nth-child-container div:nth-child(odd) {
+            background-color: #9C27B0;
+        }
+
+        .nth-child-container div:nth-child(even) {
+            background-color: #03A9F4;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Pseudo-Classes and Pseudo-Elements Demo</h1>
+    <div class="container">
+        <div class="box hover">Hover</div>
+        <div class="box active">Active</div>
+        <div class="box focus" tabindex="0">Focus</div>
+    </div>
+    <div class="nth-child-container" style="display: flex; gap: 10px; margin-top: 20px;">
+        <div class="box">1st</div>
+        <div class="box">2nd</div>
+        <div class="box">3rd</div>
+        <div class="box">4th</div>
+    </div>
+    <input type="text" placeholder="Focus on me!">
+</body>
+</html>
