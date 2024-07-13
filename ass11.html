@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS Positioning Techniques</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      margin: 20px;
+    }
+    .box {
+      padding: 20px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+    }
+    /* Static positioning */
+    .static {
+      position: static;
+      background-color: #f9f9f9;
+    }
+    /* Relative positioning */
+    .relative {
+      position: relative;
+      background-color: #e1f7d5;
+      top: 10px;
+      left: 20px;
+    }
+    /* Sticky positioning */
+    .sticky {
+      position: -webkit-sticky; /* For Safari */
+      position: sticky;
+      top: 0;
+      background-color: #ffbdbd;
+      border: 2px solid #ff7b7b;
+    }
+    /* Fixed positioning */
+    .fixed {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      background-color: #c9c9ff;
+      border: 2px solid #7b7bff;
+    }
+    /* Absolute positioning */
+    .absolute {
+      position: absolute;
+      top: 50px;
+      left: 50px;
+      background-color: #ffffba;
+      border: 2px solid #ffff7b;
+    }
+    /* Container for absolute positioning */
+    .relative-container {
+      position: relative;
+      height: 200px;
+      background-color: #d5e1f7;
+      border: 1px solid #7b9fff;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Static positioning -->
+    <div class="box static">
+      <h2>Static Positioning</h2>
+      <p>This is a static positioned element. Static is the default positioning for all elements. Elements are positioned according to the normal document flow.</p>
+    </div>
+    
+    <!-- Relative positioning -->
+    <div class="box relative">
+      <h2>Relative Positioning</h2>
+      <p>This is a relative positioned element. Relative positioning moves the element relative to its normal position in the document flow. Here it is moved down by 10px and right by 20px.</p>
+    </div>
+
+    <!-- Sticky positioning -->
+    <div class="box sticky">
+      <h2>Sticky Positioning</h2>
+      <p>This is a sticky positioned element. Sticky positioning is a hybrid between relative and fixed positioning. The element is treated as relative until it reaches a specified scroll position, then it is treated as fixed.</p>
+    </div>
+
+    <!-- Fixed positioning -->
+    <div class="box fixed">
+      <h2>Fixed Positioning</h2>
+      <p>This is a fixed positioned element. Fixed positioning removes the element from the normal document flow and positions it relative to the viewport. This element will stay in its position even when the page is scrolled.</p>
+    </div>
+
+    <!-- Container for absolute positioning -->
+    <div class="relative-container">
+      <div class="box absolute">
+        <h2>Absolute Positioning</h2>
+        <p>This is an absolutely positioned element. Absolute positioning removes the element from the normal document flow and positions it relative to the nearest positioned ancestor (in this case, the .relative-container). This element is positioned 50px from the top and left of its container.</p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
