@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS Transitions Demo</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+    }
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .box {
+      width: 100px;
+      height: 100px;
+      background-color: lightblue;
+      text-align: center;
+      line-height: 100px;
+      transition: all 0.5s ease;
+    }
+    .box:hover {
+      color: white;
+      background-color: darkblue;
+      width: 150px;
+      height: 150px;
+    }
+    /* Different transition properties */
+    .box-duration {
+      transition-duration: 1s;
+    }
+    .box-timing-function {
+      transition-timing-function: ease-in-out;
+    }
+    .box-delay {
+      transition-delay: 0.5s;
+    }
+    .box-multiple {
+      transition: background-color 0.5s ease-in, width 1s ease-out, height 0.7s ease-in-out, color 0.3s linear;
+    }
+    .box-duration:hover {
+      width: 150px;
+    }
+    .box-timing-function:hover {
+      height: 150px;
+    }
+    .box-delay:hover {
+      background-color: darkgreen;
+    }
+    .box-multiple:hover {
+      color: yellow;
+      background-color: purple;
+      width: 200px;
+      height: 200px;
+    }
+  </style>
+</head>
+<body>
+  <h1>CSS Transitions Demo</h1>
+  <p>Hover over the boxes to see the transitions in action.</p>
+  
+  <div class="container">
+    <div class="box">Box 1</div>
+    <div class="box box-duration">Duration</div>
+    <div class="box box-timing-function">Timing Function</div>
+    <div class="box box-delay">Delay</div>
+    <div class="box box-multiple">Multiple</div>
+  </div>
+</body>
+</html>
