@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Government Certificates Online Application</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+            padding: 20px;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        form {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group input[type="number"],
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input[type="text"]:focus,
+        .form-group input[type="email"]:focus,
+        .form-group input[type="number"]:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: #4CAF50;
+        }
+
+        .form-group input[type="checkbox"],
+        .form-group input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        .form-group input[type="checkbox"] + label,
+        .form-group input[type="radio"] + label {
+            display: inline-block;
+            margin-right: 20px;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+        }
+
+        .form-group .error {
+            display: none;
+            color: red;
+            font-size: 12px;
+            margin-top: 5px;
+        }
+
+        .form-group input:invalid + .error,
+        .form-group select:invalid + .error,
+        .form-group textarea:invalid + .error {
+            display: block;
+        }
+
+        .form-group input.invalid,
+        .form-group select.invalid,
+        .form-group textarea.invalid {
+            border-color: red;
+        }
+
+        .form-group .required {
+            color: red;
+        }
+
+        .form-group button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .form-group button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Government Certificates Online Application</h1>
+    <form id="certificateForm" novalidate>
+        <div class="form-group">
+            <label for="name">Full Name <span class="required">*</span></label>
+            <input type="text" id="name" name="name" required>
+            <div class="error">Please enter your name.</div>
+        </div>
+        <div class="form-group">
+            <label for="email">Email <span class="required">*</span></label>
+            <input type="email" id="email" name="email" required>
+            <div class="error">Please enter a valid email address.</div>
+        </div>
+        <div class="form-group">
+            <label for="phone">Phone Number <span class="required">*</span></label>
+            <input type="number" id="phone" name="phone" required>
+            <div class="error">Please enter your phone number.</div>
+        </div>
+        <div class="form-group">
+            <label for="certificateType">Certificate Type <span class="required">*</span></label>
+            <select id="certificateType" name="certificateType" required>
+                <option value="">Select a certificate</option>
+                <option value="birth">Birth Certificate</option>
+                <option value="death">Death Certificate</option>
+                <option value="native">Native Certificate</option>
+                <option value="income">Income Certificate</option>
+            </select>
+            <div class="error">Please select a certificate type.</div>
+        </div>
+        <div class="form-group">
+            <label>Gender <span class="required">*</span></label>
+            <input type="radio" id="male" name="gender" value="male" required>
+            <label for="male">Male</label>
+            <input type="radio" id="female" name="gender" value="female" required>
+            <label for="female">Female</label>
+            <input type="radio" id="other" name="gender" value="other" required>
+            <label for="other">Other</label>
+            <div class="error">Please select your gender.</div>
+        </div>
+        <div class="form-group">
+            <label for="address">Address</label>
+            <textarea id="address" name="address" rows="4"></textarea>
+        </div>
+        <div class="form-group">
+            <label>
+                <input type="checkbox" name="terms" required> I agree to the terms and conditions
+            </label>
+            <div class="error">You must agree to the terms and conditions.</div>
+        </div>
+        <div class="form-group">
+            <button type="submit">Submit Application</button>
+        </div>
+    </form>
+</body>
+</html>
