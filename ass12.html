@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS z-index and Positioning</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+    }
+    .container {
+      position: relative;
+      width: 300px;
+      height: 300px;
+      border: 1px solid #ccc;
+      margin: 20px auto;
+    }
+    .box {
+      width: 100px;
+      height: 100px;
+      padding: 20px;
+      color: white;
+      text-align: center;
+      line-height: 100px;
+      position: absolute;
+    }
+    .box1 {
+      background-color: red;
+      top: 50px;
+      left: 50px;
+      z-index: 1;
+    }
+    .box2 {
+      background-color: green;
+      top: 70px;
+      left: 70px;
+      z-index: 2;
+    }
+    .box3 {
+      background-color: blue;
+      top: 90px;
+      left: 90px;
+      z-index: 3;
+    }
+    /* Additional positioning for demonstration */
+    .fixed-box {
+      position: fixed;
+      bottom: 10px;
+      right: 10px;
+      width: 150px;
+      height: 150px;
+      background-color: orange;
+      z-index: 4;
+      color: black;
+      text-align: center;
+      line-height: 150px;
+    }
+    .relative-container {
+      position: relative;
+      margin-top: 50px;
+      border: 1px solid #ccc;
+      height: 200px;
+      background-color: #f9f9f9;
+    }
+    .relative-box {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      width: 100px;
+      height: 100px;
+      background-color: purple;
+      z-index: 5;
+      color: white;
+      text-align: center;
+      line-height: 100px;
+    }
+  </style>
+</head>
+<body>
+  <h1>CSS z-index and Positioning</h1>
+  <p>Demonstration of overlapping elements with different z-index values to control stacking order:</p>
+  
+  <div class="container">
+    <div class="box box1">1</div>
+    <div class="box box2">2</div>
+    <div class="box box3">3</div>
+  </div>
+  
+  <div class="fixed-box">Fixed</div>
+  
+  <div class="relative-container">
+    <div class="relative-box">Absolute</div>
+  </div>
+</body>
+</html>
